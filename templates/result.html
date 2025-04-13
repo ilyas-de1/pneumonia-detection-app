@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h3>Résultat de l'analyse</h3>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                Image radiographique analysée
+            </div>
+            <div class="card-body text-center">
+                <img src="{{ url_for('static', filename='preview.jpg') }}" alt="Radiographie" class="img-fluid rounded shadow">
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 d-flex flex-column justify-content-center">
+        <h4 class="text-primary"><strong>Diagnostic :</strong> {{ resultat }}</h4>
+        <h5><strong>Confiance :</strong> {{ confiance }} %</h5>
+        <a href="/dashboard_med" class="btn btn-secondary mt-4">Retour au tableau de bord</a>
+    </div>
+</div>
+
+{% endblock %}

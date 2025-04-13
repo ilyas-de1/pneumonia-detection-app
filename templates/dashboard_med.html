@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<a href="/logout" class="btn btn-outline-danger float-end mb-3">Se déconnecter</a>
+
+<h2>Bienvenue Dr. {{ session.nom }}</h2>
+
+<div class="row">
+    <!-- Colonne gauche : infos personnelles -->
+    <div class="col-md-4">
+        <div class="card p-3 mb-3">
+            <h5>Informations personnelles</h5>
+            <p><strong>Nom :</strong> {{ session.nom }}</p>
+            <p><strong>Rôle :</strong> Médecin</p>
+        </div>
+        <a href="/patients" class="btn btn-info w-100">Voir mes patients</a>
+    </div>
+
+    <!-- Colonne droite : ajout de patient -->
+    <div class="col-md-8">
+        <h5>Ajouter un patient</h5>
+        <form method="post" action="/ajouter_patient">
+            <div class="row g-2">
+                <div class="col-md-6">
+                    <input type="text" name="nom" class="form-control" placeholder="Nom complet" required>
+                </div>
+                <div class="col-md-3">
+                    <input type="number" name="age" class="form-control" placeholder="Âge" required>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" name="ville" class="form-control" placeholder="Ville" required>
+                </div>
+                <div class="col-md-3">
+                    <select name="sexe" class="form-control" required>
+                        <option value="">Sexe</option>
+                        <option value="Homme">Homme</option>
+                        <option value="Femme">Femme</option>
+                    </select>
+                </div>
+                <div class="col-md-9">
+                    <textarea name="description" class="form-control" placeholder="Description de l'état" required></textarea>
+                </div>
+                <div class="col-md-12">
+                    <button class="btn btn-primary w-100">Ajouter et téléverser image</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

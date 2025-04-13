@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<a href="/logout" class="btn btn-outline-danger float-end mb-3">Se déconnecter</a>
+
+<h2>Liste de mes patients</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Âge</th>
+            <th>Ville</th>
+            <th>Sexe</th>
+            <th>Description</th>
+            <th>Diagnostic</th>
+            <th>Confiance (%)</th>
+            <th>Date d’analyse</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in patients %}
+        <tr>
+            <td>{{ p.nom }}</td>
+            <td>{{ p.age }}</td>
+            <td>{{ p.ville }}</td>
+            <td>{{ p.sexe }}</td>
+            <td>{{ p.description }}</td>
+            <td>{{ p.image.resultat if p.image else '---' }}</td>
+            <td>{{ p.image.confiance if p.image else '---' }}</td>
+            <td>{{ p.image.date_analyse.strftime('%d/%m/%Y %H:%M') if p.image else '---' }}</td>
+            <td>
+                {% if p.image %}
+                <a href="/image/{{ p.id }}" target="_blank" class="btn btn-sm btn-outline-primary">Voir</a>
+                {% else %}
+                ---
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="/dashboard_med" class="btn btn-secondary mt-3">Retour au tableau de bord</a>
+
+{% endblock %}

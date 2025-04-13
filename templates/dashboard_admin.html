@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<a href="/logout" class="btn btn-outline-danger float-end mb-3">Se déconnecter</a>
+
+<h2>Admin - Liste des médecins</h2>
+
+<form method="post" action="/ajouter_medecin" class="mb-4">
+    <h5>Ajouter un médecin</h5>
+    <div class="row g-2">
+        <div class="col-md-3">
+            <input type="text" name="nom" placeholder="Nom" class="form-control" required>
+        </div>
+        <div class="col-md-3">
+            <input type="email" name="email" placeholder="Email" class="form-control" required>
+        </div>
+        <div class="col-md-3">
+            <input type="password" name="password" placeholder="Mot de passe" class="form-control" required>
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-success w-100">Ajouter</button>
+        </div>
+    </div>
+</form>
+
+<h5>Médecins existants</h5>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for m in medecins %}
+        <tr>
+            <td>{{ m.nom }}</td>
+            <td>{{ m.email }}</td>
+            <td>
+                <a href="/supprimer_medecin/{{ m.id }}" class="btn btn-danger btn-sm">Supprimer</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
+
+
+

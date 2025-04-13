@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Connexion</h2>
+<form method="post" action="/login">
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" name="email" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Mot de passe</label>
+        <input type="password" name="password" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Se connecter</button>
+</form>
+{% if erreur %}<div class="text-danger mt-2">{{ erreur }}</div>{% endif %}
+{% endblock %}

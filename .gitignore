@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+uploads/
+models/model_pneumonie.h5
+.env
+.vscode/
+.idea/
+.DS_Store
+*.sqlite3

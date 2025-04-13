@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Téléverser une image pour le patient #{{ patient_id }}</h3>
+<form method="post" action="/predict/{{ patient_id }}" enctype="multipart/form-data">
+    <input type="file" name="image" class="form-control" required>
+    <button type="submit" class="btn btn-success mt-2">Analyser l'image</button>
+</form>
+{% endblock %}
