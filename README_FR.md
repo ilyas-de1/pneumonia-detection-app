@@ -10,7 +10,7 @@ Une application web alimentée par l'IA qui détecte la **pneumonie** à partir 
 - Prédiction de la présence ou non de **pneumonie**
 - Prétraitement intégré des images téléchargées
 - Modèle de deep learning pour des prédictions précises
-- Interface web simple utilisant HTML/CSS (modèles Jinja2)
+- Interface web simple utilisant HTML (modèles Jinja2)
 - Enregistrement des résultats dans une base de données locale (SQLite)
 
 ---
