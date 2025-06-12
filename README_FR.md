@@ -17,7 +17,9 @@ Une application web alimentée par l'IA qui détecte la **pneumonie** à partir 
 
 ## 📷 Capture d'Écran
 
->![Aperçu de l'application](static/interface_home)
+![interface de l'applicaation](interface_home.png)
+![ajouter un médecin](ajouter_médecin.png)
+![ajouter clien](ajouter_client.png)
 
 
 ```html
